@@ -1,6 +1,7 @@
 package l3.parcial.application.mapper;
 
 import l3.parcial.domain.Estudiante;
+import l3.parcial.domain.EstudianteDto;
 import l3.parcial.infrastructure.repository.model.EstudianteEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -18,7 +19,7 @@ public interface EstudianteMapper {
 
     EstudianteMapper INSTANCE = Mappers.getMapper(EstudianteMapper.class);
 
-    EstudianteEntity mapToEntity(Estudiante estudiante);
+    EstudianteEntity mapToEntity(EstudianteDto estudianteDto);
 
     Estudiante mapToDomain(EstudianteEntity estudianteEntity);
 }

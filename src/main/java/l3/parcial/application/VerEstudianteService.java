@@ -5,6 +5,6 @@ import l3.parcial.domain.Estudiante;
 import java.util.List;
 
 public interface VerEstudianteService {
-    Estudiante getEstudiante(Long id);
-    List<Estudiante> getAllEstudiantes();
+    Estudiante obtenerEstudiante(Long id);
+    List<Estudiante> obtenerTodosEstudiantes();
 }

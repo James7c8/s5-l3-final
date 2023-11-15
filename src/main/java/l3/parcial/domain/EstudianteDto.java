@@ -5,8 +5,7 @@ import lombok.*;
 @Data
 @Builder
 @AllArgsConstructor
-public class Estudiante {
-    private Long id;
+public class EstudianteDto {
     private String nombre;
     private String apellido;
     private int edad;

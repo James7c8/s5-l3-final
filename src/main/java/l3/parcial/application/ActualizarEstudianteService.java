@@ -1,7 +1,8 @@
 package l3.parcial.application;
 
 import l3.parcial.domain.Estudiante;
+import l3.parcial.domain.EstudianteDto;
 
 public interface ActualizarEstudianteService {
-    void actualizarEstudiante(Estudiante estudiante);
+    Estudiante actualizarEstudiante(Long id, EstudianteDto estudianteDto);
 }
