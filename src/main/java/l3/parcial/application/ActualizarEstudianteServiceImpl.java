@@ -6,12 +6,14 @@ import l3.parcial.domain.EstudianteDto;
 import l3.parcial.exception.EntityNoSeEncuentraExcepcion;
 import l3.parcial.infrastructure.repository.EstudianteRepository;
 import l3.parcial.infrastructure.repository.model.EstudianteEntity;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class ActualizarEstudianteServiceImpl implements ActualizarEstudianteService {
 
-    EstudianteRepository estudianteRepo;
+    private final EstudianteRepository estudianteRepo;
     
     @Override
     public Estudiante actualizarEstudiante(Long id, EstudianteDto estudianteDto) {

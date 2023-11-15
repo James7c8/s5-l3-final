@@ -5,13 +5,17 @@ import l3.parcial.domain.Estudiante;
 import l3.parcial.exception.EntityNoSeEncuentraExcepcion;
 import l3.parcial.infrastructure.repository.EstudianteRepository;
 import l3.parcial.infrastructure.repository.model.EstudianteEntity;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+@Service
+@RequiredArgsConstructor
 public class VerEstudianteServiceImpl implements VerEstudianteService {
 
-    EstudianteRepository estudianteRepo;
+    private final EstudianteRepository estudianteRepo;
 
     @Override
     public Estudiante obtenerEstudiante(Long id) {
@@ -23,10 +27,9 @@ public class VerEstudianteServiceImpl implements VerEstudianteService {
     @Override
     public List<Estudiante> obtenerTodosEstudiantes() {
         List<EstudianteEntity> estudianteEntities = estudianteRepo.findAll();
-        List<Estudiante> estudiantes = new ArrayList<>();
-        for (EstudianteEntity entity : estudianteEntities) {
-            estudiantes.add(EstudianteMapper.INSTANCE.mapToDomain(entity));
-        }
-        return estudiantes;
+
+        return estudianteEntities.stream()
+                .map(entity -> EstudianteMapper.INSTANCE.mapToDomain(entity))
+                .collect(Collectors.toList());
     }
 }
